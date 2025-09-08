@@ -26,6 +26,10 @@ func _physics_process(delta: float) -> void:
 	if (self.position.x <= 0):
 		player2_score += 1
 		_init()
+	if (self.position.y <= 0):
+		direction_Y *= -1
+	if (self.position.y >= 648):
+		direction_Y *= -1
 		
 	#var collision = move_and_collide(200 * delta)
 	#if (collision):
