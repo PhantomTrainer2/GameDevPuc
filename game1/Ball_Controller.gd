@@ -4,9 +4,10 @@ var direction_Y = 0
 var direction_X = 0
 var player1_score = 0
 var player2_score = 0
-var speed = 420.0
+var speed = 100.0
 
 func _init() -> void:
+	speed = 100.0
 	self.position.x = 640
 	self.position.y =  360
 	direction_Y = randf_range(-1, 1) 
@@ -18,16 +19,37 @@ func _init() -> void:
 
 func _physics_process(delta: float) -> void:
 	randomize()
-	
-	self.position.x -= speed * direction_X * delta
-	self.position.y += speed * direction_Y * delta
+	var velocity = Vector2(-speed * direction_X, speed * direction_Y) * delta
+	var collision = move_and_collide(velocity)
+	if collision:
+		speed = speed + 30
+		var collider = collision.get_collider()
+		if collider is CharacterBody2D:
+			# inverte X sempre
+			direction_X *= -1
+			
+			# ajusta o Y dependendo do movimento do player
+			if collider.movement_dir != 0:
+				direction_Y += 0.5 * collider.movement_dir
+			
+			# normaliza vetor para não ficar muito rápido em Y
+			var dir = Vector2(direction_X, direction_Y).normalized()
+			direction_X = dir.x
+			direction_Y = dir.y
+	else:
+		self.position += velocity
+
+	# Pontuação
 	if (self.position.x >= 1200):
-		player1_score += 1
+		GameController.player1_score += 1
 		_init()
 	if (self.position.x <= 0):
-		player2_score += 1
+		GameController.player2_score += 1
 		_init()
+
+
+	# Colisão no topo/baixo da tela
 	if (self.position.y <= 0):
 		direction_Y *= -1
-	if (self.position.y >= 648):
+	if (self.position.y >= get_window().size.y):
 		direction_Y *= -1

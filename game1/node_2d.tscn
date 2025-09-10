@@ -1,18 +1,30 @@
-[gd_scene load_steps=9 format=3 uid="uid://cc1o8c00g5s6t"]
+[gd_scene load_steps=13 format=3 uid="uid://cc1o8c00g5s6t"]
 
 [ext_resource type="Script" uid="uid://d2agl770dbqr" path="res://Player1_Controller.gd" id="1_0e48y"]
+[ext_resource type="Texture2D" uid="uid://dtsffg1sm3i8" path="res://a.jpeg" id="1_4d7sh"]
 [ext_resource type="Texture2D" uid="uid://boscf73wda5e7" path="res://Player1.png" id="1_wtcfe"]
 [ext_resource type="Texture2D" uid="uid://bpbv0543xqch" path="res://Player2.png" id="3_0hol4"]
 [ext_resource type="Script" uid="uid://ifp52pvjx7bk" path="res://Player2_Controller.gd" id="3_q6r6c"]
 [ext_resource type="Texture2D" uid="uid://bu8pd5433e22d" path="res://ball.png" id="4_q6r6c"]
 [ext_resource type="Script" uid="uid://bdkdwx6qgo375" path="res://Ball_Controller.gd" id="5_kdubu"]
+[ext_resource type="Script" uid="uid://cn7mmw52r8lis" path="res://Player1Score.gd" id="7_d21ai"]
+[ext_resource type="Script" uid="uid://c6hdik784u6nw" path="res://Player2Score.gd" id="8_rj586"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0e48y"]
 size = Vector2(27, 119)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kdubu"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_kdubu"]
+font_size = 30
+font_color = Color(0, 0, 0, 1)
+
 [node name="Node2D" type="Node2D"]
+
+[node name="Fundo" type="Sprite2D" parent="."]
+position = Vector2(577.25, 323.75)
+scale = Vector2(3.03281, 3.15217)
+texture = ExtResource("1_4d7sh")
 
 [node name="Player1" type="CharacterBody2D" parent="."]
 position = Vector2(49, 315)
@@ -37,7 +49,7 @@ position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_0e48y")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
-position = Vector2(560, 250)
+position = Vector2(583, 298)
 gravity_scale = 0.0
 script = ExtResource("5_kdubu")
 
@@ -46,3 +58,21 @@ shape = SubResource("CircleShape2D_kdubu")
 
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
 texture = ExtResource("4_q6r6c")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 8.0
+offset_right = 150.0
+offset_bottom = 42.0
+text = "Player1: "
+label_settings = SubResource("LabelSettings_kdubu")
+uppercase = true
+script = ExtResource("7_d21ai")
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 966.0
+offset_right = 1108.0
+offset_bottom = 42.0
+text = "Player2: "
+label_settings = SubResource("LabelSettings_kdubu")
+uppercase = true
+script = ExtResource("8_rj586")
