@@ -4,6 +4,7 @@ var direction_Y = 0
 var direction_X = 0
 var player1_score = 0
 var player2_score = 0
+var speed = 420.0
 
 func _init() -> void:
 	self.position.x = 640
@@ -13,13 +14,13 @@ func _init() -> void:
 	if (direction_X == 0):
 		direction_X = 1
 	if (direction_Y == 0):
-		direction_Y = -1
+		direction_Y = -0.6
 
 func _physics_process(delta: float) -> void:
 	randomize()
 	
-	self.position.x -= 200 * direction_X * delta
-	self.position.y += 200 * direction_Y * delta
+	self.position.x -= speed * direction_X * delta
+	self.position.y += speed * direction_Y * delta
 	if (self.position.x >= 1200):
 		player1_score += 1
 		_init()
@@ -30,8 +31,3 @@ func _physics_process(delta: float) -> void:
 		direction_Y *= -1
 	if (self.position.y >= 648):
 		direction_Y *= -1
-		
-	#var collision = move_and_collide(200 * delta)
-	#if (collision):
-		#direction_x *= -1
-	
