@@ -2,20 +2,19 @@ extends RigidBody2D
 
 var direction_Y = 0
 var direction_X = 0
-var player1_score = 0
-var player2_score = 0
-var speed = 100.0
+var speed = 200.0
 
-func _init() -> void:
-	speed = 100.0
-	self.position.x = 640
-	self.position.y =  360
+func _ready() -> void:
+	speed = 200.0
+	self.position.x = get_window().size.x /2
+	self.position.y = get_window().size.y /2
 	direction_Y = randf_range(-1, 1) 
 	direction_X = randi_range(-1, 1)
 	if (direction_X == 0):
 		direction_X = 1
 	if (direction_Y == 0):
 		direction_Y = -0.6
+	
 
 func _physics_process(delta: float) -> void:
 	randomize()
@@ -40,12 +39,15 @@ func _physics_process(delta: float) -> void:
 		self.position += velocity
 
 	# Pontuação
+	if (GameController.player1_score >= GameController.score_limit -1 or GameController.player2_score >= GameController.score_limit - 1):
+		GameController.end_game()
+		
 	if (self.position.x >= 1200):
 		GameController.player1_score += 1
-		_init()
+		_ready()
 	if (self.position.x <= 0):
 		GameController.player2_score += 1
-		_init()
+		_ready()
 
 
 	# Colisão no topo/baixo da tela

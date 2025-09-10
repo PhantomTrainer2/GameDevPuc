@@ -2,8 +2,8 @@ extends Label
 
 @export var player: int = 2  # 1 = player1, 2 = player2
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if player == 1:
-		text = "Player1: " + str(GameController.player1_score)
+		text = str(GameController.player1_score)
 	else:
-		text = "Player2: " + str(GameController.player2_score)
+		text = str(GameController.player2_score)

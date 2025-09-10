@@ -11,6 +11,8 @@ func _process(delta: float) -> void:
 	if Input.is_action_pressed("up_player1"):
 		self.position.y -= speed * delta
 		movement_dir = -1
+	if Input.is_action_pressed("reset_game"):
+		GameController.reset_game()
 
 	if (self.position.y - 60 <= 0):
 		self.position.y = 60

@@ -16,7 +16,7 @@ size = Vector2(27, 119)
 [sub_resource type="CircleShape2D" id="CircleShape2D_kdubu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kdubu"]
-font_size = 30
+font_size = 50
 font_color = Color(0, 0, 0, 1)
 
 [node name="Node2D" type="Node2D"]
@@ -60,19 +60,21 @@ shape = SubResource("CircleShape2D_kdubu")
 texture = ExtResource("4_q6r6c")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 8.0
-offset_right = 150.0
-offset_bottom = 42.0
-text = "Player1: "
+offset_left = 414.0
+offset_top = 89.0
+offset_right = 525.0
+offset_bottom = 158.0
+text = "1"
 label_settings = SubResource("LabelSettings_kdubu")
 uppercase = true
 script = ExtResource("7_d21ai")
 
 [node name="Label2" type="Label" parent="."]
-offset_left = 966.0
-offset_right = 1108.0
-offset_bottom = 42.0
-text = "Player2: "
+offset_left = 697.0
+offset_top = 93.0
+offset_right = 836.0
+offset_bottom = 162.0
+text = "2"
 label_settings = SubResource("LabelSettings_kdubu")
 uppercase = true
 script = ExtResource("8_rj586")
