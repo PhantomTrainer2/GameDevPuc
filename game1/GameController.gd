@@ -14,3 +14,4 @@ func end_game():
 func reset_game():
 	player1_score = 0
 	player2_score = 0
+	get_tree().call_deferred("change_scene_to_file", "res://menu.tscn")

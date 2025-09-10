@@ -52,6 +52,8 @@ func _physics_process(delta: float) -> void:
 
 	# Colisão no topo/baixo da tela
 	if (self.position.y <= 0):
+		self.position.y = 0
 		direction_Y *= -1
 	if (self.position.y >= get_window().size.y):
+		self.position.y = get_window().size.y
 		direction_Y *= -1
