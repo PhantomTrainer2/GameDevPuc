@@ -1,0 +1,122 @@
+[gd_scene load_steps=9 format=3 uid="uid://rofphx1nuufa"]
+
+[ext_resource type="Script" uid="uid://yreoqregxhm3" path="res://how_to_play.gd" id="1_1ddmb"]
+[ext_resource type="Texture2D" uid="uid://crfqo1cexjslj" path="res://wmremove-transformed.png" id="1_v17eh"]
+[ext_resource type="FontFile" uid="uid://dqmin8hus2g7y" path="res://AtariSmall.ttf" id="2_1ddmb"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nkug2"]
+texture = ExtResource("1_v17eh")
+modulate_color = Color(0.517184, 0.517184, 0.517184, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v17eh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ddmb"]
+bg_color = Color(0.54099, 0.54099, 0.54099, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_udkts"]
+bg_color = Color(0.273873, 0.273873, 0.273873, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_osa5n"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1ddmb")
+
+[node name="Menu_Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_nkug2")
+
+[node name="Button2" type="Button" parent="Menu_Background"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -105.5
+offset_top = -151.0
+offset_right = 105.5
+offset_bottom = -106.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_v17eh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1ddmb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_udkts")
+theme_override_styles/normal = SubResource("StyleBoxFlat_osa5n")
+text = "Back to Menu"
+
+[node name="How_to_play" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -120.0
+offset_top = 18.0
+offset_right = 120.0
+offset_bottom = 126.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 10
+theme_override_fonts/font = ExtResource("2_1ddmb")
+theme_override_font_sizes/font_size = 60
+text = "How to Play:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Controles" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -376.0
+offset_top = 150.0
+offset_right = 434.0
+offset_bottom = 467.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 10
+theme_override_fonts/font = ExtResource("2_1ddmb")
+theme_override_font_sizes/font_size = 60
+text = "W -> Up Player 1
+S -> Down Player 1
+R -> Restart Game
+Up Arrow -> Up Player 2
+Down Arrow -> Down Player 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Menu_Background/Button2" to="." method="_on_back_pressed"]
