@@ -23,7 +23,7 @@ func _on_settings_pressed() -> void:
 	get_tree().change_scene_to_file("res://How_to_play.tscn")
 
 func _on_secret_pressed() -> void:
-	get_tree().change_scene_to_file("res://node_2d.tscn")
+	get_tree().change_scene_to_file("res://secret_pong.tscn")
 
 func _input(event):
 	# Verifica se é um evento de tecla pressionada
