@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cc1o8c00g5s6t"]
+[gd_scene load_steps=14 format=3 uid="uid://cc1o8c00g5s6t"]
 
 [ext_resource type="Script" uid="uid://d2agl770dbqr" path="res://Player1_Controller.gd" id="1_0e48y"]
 [ext_resource type="Texture2D" uid="uid://dtsffg1sm3i8" path="res://a.jpeg" id="1_4d7sh"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://bdkdwx6qgo375" path="res://Ball_Controller.gd" id="5_kdubu"]
 [ext_resource type="Script" uid="uid://cn7mmw52r8lis" path="res://Player1Score.gd" id="7_d21ai"]
 [ext_resource type="Script" uid="uid://c6hdik784u6nw" path="res://Player2Score.gd" id="8_rj586"]
+[ext_resource type="AudioStream" uid="uid://c156phyjuexyh" path="res://BackGroundMusic.mp3" id="10_ir8iy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0e48y"]
 size = Vector2(27, 119)
@@ -78,3 +79,7 @@ text = "2"
 label_settings = SubResource("LabelSettings_kdubu")
 uppercase = true
 script = ExtResource("8_rj586")
+
+[node name="BackGroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_ir8iy")
+autoplay = true

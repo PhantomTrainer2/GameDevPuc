@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://rofphx1nuufa"]
+[gd_scene load_steps=10 format=3 uid="uid://rofphx1nuufa"]
 
 [ext_resource type="Script" uid="uid://yreoqregxhm3" path="res://how_to_play.gd" id="1_1ddmb"]
 [ext_resource type="Texture2D" uid="uid://crfqo1cexjslj" path="res://wmremove-transformed.png" id="1_v17eh"]
 [ext_resource type="FontFile" uid="uid://dqmin8hus2g7y" path="res://AtariSmall.ttf" id="2_1ddmb"]
+[ext_resource type="AudioStream" uid="uid://b7k1iq37sf3ed" path="res://MenuMusic.mp3" id="4_udkts"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nkug2"]
 texture = ExtResource("1_v17eh")
@@ -118,5 +119,9 @@ Up Arrow -> Up Player 2
 Down Arrow -> Down Player 2"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="MenuMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_udkts")
+autoplay = true
 
 [connection signal="pressed" from="Menu_Background/Button2" to="." method="_on_back_pressed"]

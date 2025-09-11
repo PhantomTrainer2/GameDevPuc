@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dqn535vsiwduy"]
+[gd_scene load_steps=11 format=3 uid="uid://dqn535vsiwduy"]
 
 [ext_resource type="Texture2D" uid="uid://crfqo1cexjslj" path="res://wmremove-transformed.png" id="1_lti8b"]
 [ext_resource type="Script" uid="uid://dodgyffkdfcew" path="res://menu.gd" id="1_mae5d"]
 [ext_resource type="FontFile" uid="uid://dqmin8hus2g7y" path="res://AtariSmall.ttf" id="2_ouk20"]
 [ext_resource type="AudioStream" uid="uid://b413xx0ooqgyb" path="res://Secret activation.mp3" id="4_4hy44"]
+[ext_resource type="AudioStream" uid="uid://b7k1iq37sf3ed" path="res://MenuMusic.mp3" id="5_ytr4m"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ouk20"]
 texture = ExtResource("1_lti8b")
@@ -152,6 +153,10 @@ vertical_alignment = 1
 
 [node name="secretActivation" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_4hy44")
+
+[node name="MenuMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_ytr4m")
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_settings_pressed"]
