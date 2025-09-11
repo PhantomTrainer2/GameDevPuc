@@ -6,25 +6,25 @@ var speed = 200.0
 
 func _ready() -> void:
 	speed = 200.0
-	self.position.x = get_window().size.x /2
-	self.position.y = get_window().size.y /2
-	direction_Y = randf_range(-1, 1) 
+	self.position.x = get_window().size.x /2.0
+	self.position.y = get_window().size.y /2.0
+	direction_Y = randf_range(-1.0, 1.0) 
 	direction_X = randi_range(-1, 1)
 	if (direction_X == 0):
 		direction_X = 1
-	if (direction_Y == 0):
+	if (direction_Y == 0.0):
 		direction_Y = -0.6
 		
 func resetball():
-	speed = 0
+	speed = 0.0
 	speed = 200.0
-	self.position.x = get_window().size.x /2
-	self.position.y = get_window().size.y /2
-	direction_Y = randf_range(-1, 1) 
+	self.position.x = get_window().size.x /2.0
+	self.position.y = get_window().size.y /2.0
+	direction_Y = randf_range(-1.0, 1.0) 
 	direction_X = randi_range(-1, 1)
 	if (direction_X == 0):
 		direction_X = 1
-	if (direction_Y == 0):
+	if (direction_Y == 0.0):
 		direction_Y = -0.6
 
 func _physics_process(delta: float) -> void:
@@ -32,14 +32,14 @@ func _physics_process(delta: float) -> void:
 	var velocity = Vector2(-speed * direction_X, speed * direction_Y) * delta
 	var collision = move_and_collide(velocity)
 	if collision:
-		speed = speed + 30
+		speed = speed + 30.0
 		var collider = collision.get_collider()
 		if collider is CharacterBody2D:
 			# inverte X sempre
-			direction_X *= -1
+			direction_X *= -1.0
 			
 			# ajusta o Y dependendo do movimento do player
-			if collider.movement_dir != 0:
+			if collider.movement_dir != 0.0:
 				direction_Y += 0.5 * collider.movement_dir
 			
 			# normaliza vetor para não ficar muito rápido em Y
@@ -62,9 +62,9 @@ func _physics_process(delta: float) -> void:
 
 
 # Colisão no topo/baixo da tela
-	if (self.position.y <= 0):
-		self.position.y = 1
-		direction_Y *= -1
+	if (self.position.y <= 0.0):
+		self.position.y = 1.0
+		direction_Y *= -1.0
 	if (self.position.y >= get_window().size.y):
-		self.position.y = get_window().size.y - 1
-		direction_Y *= -1
+		self.position.y = get_window().size.y - 1.0
+		direction_Y *= -1.0

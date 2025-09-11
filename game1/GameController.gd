@@ -10,6 +10,7 @@ func end_game():
 	if (player1_score >= score_limit or player2_score >= score_limit):
 		player1_score = 0
 		player2_score = 0
+		get_tree().call_deferred("change_scene_to_file", "res://menu.tscn")
 
 func reset_game():
 	player1_score = 0
