@@ -14,7 +14,18 @@ func _ready() -> void:
 		direction_X = 1
 	if (direction_Y == 0):
 		direction_Y = -0.6
-	
+		
+func resetball():
+	speed = 0
+	speed = 200.0
+	self.position.x = get_window().size.x /2
+	self.position.y = get_window().size.y /2
+	direction_Y = randf_range(-1, 1) 
+	direction_X = randi_range(-1, 1)
+	if (direction_X == 0):
+		direction_X = 1
+	if (direction_Y == 0):
+		direction_Y = -0.6
 
 func _physics_process(delta: float) -> void:
 	randomize()
@@ -44,16 +55,16 @@ func _physics_process(delta: float) -> void:
 		
 	if (self.position.x >= 1200):
 		GameController.player1_score += 1
-		_ready()
+		resetball()
 	if (self.position.x <= 0):
 		GameController.player2_score += 1
-		_ready()
+		resetball()
 
 
-	# Colisão no topo/baixo da tela
+# Colisão no topo/baixo da tela
 	if (self.position.y <= 0):
-		self.position.y = 0
+		self.position.y = 1
 		direction_Y *= -1
 	if (self.position.y >= get_window().size.y):
-		self.position.y = get_window().size.y
+		self.position.y = get_window().size.y - 1
 		direction_Y *= -1
