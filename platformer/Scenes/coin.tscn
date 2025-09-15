@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://co6s13m1l6sbs"]
+
+[ext_resource type="Script" uid="uid://7b8x8iovb4lf" path="res://Scripts/area_2d.gd" id="1_2qo34"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ig7tw"]
+radius = 12.0
+height = 38.0
+
+[node name="Coin" type="Area2D" node_paths=PackedStringArray("PointsUI")]
+script = ExtResource("1_2qo34")
+PointsUI = NodePath("")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 709.0
+offset_top = 439.0
+offset_right = 729.0
+offset_bottom = 473.0
+color = Color(0.578195, 0.578195, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(719, 456)
+shape = SubResource("CapsuleShape2D_ig7tw")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

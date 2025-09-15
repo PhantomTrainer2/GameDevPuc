@@ -1,0 +1,78 @@
+[gd_scene load_steps=7 format=3 uid="uid://dej8g6m3ghx1x"]
+
+[ext_resource type="Script" uid="uid://36rwnhjn5qfv" path="res://game_controller.gd" id="1_h2yge"]
+[ext_resource type="Script" uid="uid://ccr8052ev6bdm" path="res://character_body_2d.gd" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://7b8x8iovb4lf" path="res://area_2d.gd" id="2_0xm2m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
+size = Vector2(732, 109)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7dm0k"]
+size = Vector2(40, 39)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ig7tw"]
+radius = 12.0
+height = 38.0
+
+[node name="Main_Game_Scene" type="Node2D"]
+script = ExtResource("1_h2yge")
+
+[node name="PointsUI" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 396.0
+offset_top = 361.0
+offset_right = 436.0
+offset_bottom = 410.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+text = "
+0"
+
+[node name="Platform" type="StaticBody2D" parent="."]
+position = Vector2(147, 521)
+
+[node name="ColorRect" type="ColorRect" parent="Platform"]
+offset_right = 730.0
+offset_bottom = 110.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+position = Vector2(364, 55)
+shape = SubResource("RectangleShape2D_ig7tw")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(557, 482)
+script = ExtResource("1_ig7tw")
+
+[node name="ColorRect" type="ColorRect" parent="Player"]
+offset_left = -22.0
+offset_top = -19.0
+offset_right = 18.0
+offset_bottom = 21.0
+color = Color(0.109804, 1, 1, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(-1, 0.5)
+shape = SubResource("RectangleShape2D_7dm0k")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="Coin" type="Area2D" parent="." node_paths=PackedStringArray("PointsUI")]
+script = ExtResource("2_0xm2m")
+PointsUI = NodePath("../PointsUI")
+
+[node name="ColorRect" type="ColorRect" parent="Coin"]
+offset_left = 709.0
+offset_top = 439.0
+offset_right = 729.0
+offset_bottom = 473.0
+color = Color(0.578195, 0.578195, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin"]
+position = Vector2(719, 456)
+shape = SubResource("CapsuleShape2D_ig7tw")
+
+[connection signal="body_entered" from="Coin" to="Coin" method="_on_body_entered"]
