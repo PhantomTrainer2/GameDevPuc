@@ -397,18 +397,8 @@ autoplay = "idle"
 metadata/_edit_use_anchors_ = true
 
 [node name="Coin" parent="." node_paths=PackedStringArray("PointsUI") instance=ExtResource("3_8gbba")]
-PointsUI = NodePath("../UI/PointsUI")
-
-[node name="Coin2" parent="." node_paths=PackedStringArray("PointsUI") instance=ExtResource("3_8gbba")]
-position = Vector2(160, 26)
-PointsUI = NodePath("../UI/PointsUI")
-
-[node name="Coin3" parent="." node_paths=PackedStringArray("PointsUI") instance=ExtResource("3_8gbba")]
-position = Vector2(-377, 5)
-PointsUI = NodePath("../UI/PointsUI")
-
-[node name="Coin4" parent="." node_paths=PackedStringArray("PointsUI") instance=ExtResource("3_8gbba")]
-position = Vector2(-140, -16)
+position = Vector2(263, 510.00003)
+scale = Vector2(0.30396783, 0.30396783)
 PointsUI = NodePath("../UI/PointsUI")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -427,5 +417,15 @@ text = "Coins: 0"
 [node name="enemy" parent="." instance=ExtResource("10_hptm8")]
 position = Vector2(461, 503.99997)
 scale = Vector2(1.7733951, 1.5647873)
+
+[node name="Coin2" parent="." node_paths=PackedStringArray("PointsUI") instance=ExtResource("3_8gbba")]
+position = Vector2(315, 508)
+scale = Vector2(0.30396783, 0.30396783)
+PointsUI = NodePath("../UI/PointsUI")
+
+[node name="Coin3" parent="." node_paths=PackedStringArray("PointsUI") instance=ExtResource("3_8gbba")]
+position = Vector2(595, 508)
+scale = Vector2(0.30396783, 0.30396783)
+PointsUI = NodePath("../UI/PointsUI")
 
 [connection signal="area_entered" from="Player/Area2D" to="Player" method="_on_area_2d_area_entered"]
