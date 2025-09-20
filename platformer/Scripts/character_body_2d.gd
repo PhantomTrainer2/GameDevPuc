@@ -1,6 +1,5 @@
 extends CharacterBody2D
-const SECRET_CODE = [KEY_UP, KEY_UP, KEY_DOWN, KEY_DOWN, KEY_LEFT, KEY_RIGHT, KEY_LEFT, KEY_RIGHT, KEY_B, KEY_A]
-
+var usedDJ = false
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -14,20 +13,32 @@ func restart_level() -> void:
 
 func _physics_process(delta: float) -> void:
 	if GameController.get_instance().points >= 10:
-		GameController.get_instance().current_level += 1
-		GameController.get_instance().points = 0
-		get_tree().change_scene_to_file("res://Scenes/level_2.tscn")
+		if GameController.get_instance().current_level == 2:
+			GameController.get_instance().points = 0
+			get_tree().change_scene_to_file("res://Scenes/end.tscn")
+		else:
+			GameController.get_instance().current_level += 1
+			GameController.get_instance().points = 0
+			get_tree().change_scene_to_file("res://Scenes/level_2.tscn")
 
+	if is_on_floor():
+		usedDJ = false
+		
 	if not is_on_floor():
+		if Input.is_action_just_pressed("ui_accept") and !usedDJ:
+			velocity.y = JUMP_VELOCITY
+			usedDJ = true
 		velocity += get_gravity() * delta
 		if velocity.y < 0:
-			spritesheet.animation = "jump"
+			if !usedDJ:
+				spritesheet.animation = "jump"
+			else:
+				spritesheet.animation = "dj"
 		else:
 			spritesheet.animation = "fall"
 
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-		
 	if Input.is_action_just_pressed("restart"):
 		restart_level()
 		

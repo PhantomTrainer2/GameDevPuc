@@ -1,6 +1,7 @@
-[gd_scene load_steps=30 format=3 uid="uid://c0wsr8wvwan15"]
+[gd_scene load_steps=37 format=3 uid="uid://c0wsr8wvwan15"]
 
 [ext_resource type="Script" uid="uid://ccr8052ev6bdm" path="res://Scripts/character_body_2d.gd" id="1_fkybt"]
+[ext_resource type="Texture2D" uid="uid://c404t0i6bt2lv" path="res://Assets/Main Characters/Pink Man/Double Jump (32x32).png" id="2_3smsa"]
 [ext_resource type="Texture2D" uid="uid://dd8nj20bv8uc5" path="res://Assets/Main Characters/Pink Man/Fall (32x32).png" id="2_x3wgy"]
 [ext_resource type="Texture2D" uid="uid://cock0ig5e7cgl" path="res://Assets/Main Characters/Pink Man/Idle (32x32).png" id="3_3smsa"]
 [ext_resource type="Texture2D" uid="uid://btjsbgdogjhxs" path="res://Assets/Main Characters/Pink Man/Jump (32x32).png" id="4_8erm5"]
@@ -8,6 +9,30 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7dm0k"]
 size = Vector2(34, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8erm5"]
+atlas = ExtResource("2_3smsa")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1ek2"]
+atlas = ExtResource("2_3smsa")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tx1dd"]
+atlas = ExtResource("2_3smsa")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gymyn"]
+atlas = ExtResource("2_3smsa")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pu2lt"]
+atlas = ExtResource("2_3smsa")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukyrk"]
+atlas = ExtResource("2_3smsa")
+region = Rect2(160, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6bp64"]
 atlas = ExtResource("3_3smsa")
@@ -99,6 +124,29 @@ region = Rect2(352, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_b3802"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8erm5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1ek2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tx1dd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gymyn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pu2lt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukyrk")
+}],
+"loop": true,
+"name": &"dj",
+"speed": 14.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_x3wgy")
