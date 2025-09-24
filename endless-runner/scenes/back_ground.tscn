@@ -22,7 +22,6 @@ centered = false
 [node name="BG1" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.3, 1)
 repeat_size = Vector2(1152, 0)
-autoscroll = Vector2(1, 0)
 
 [node name="layer1" type="Sprite2D" parent="BG1"]
 texture = ExtResource("2_y664p")
@@ -31,7 +30,6 @@ centered = false
 [node name="BG2" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.5, 1)
 repeat_size = Vector2(1152, 0)
-autoscroll = Vector2(1, 0)
 
 [node name="layer2" type="Sprite2D" parent="BG2"]
 texture = ExtResource("3_gjtue")
@@ -40,7 +38,6 @@ centered = false
 [node name="BG3" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.7, 1)
 repeat_size = Vector2(1152, 0)
-autoscroll = Vector2(1, 0)
 
 [node name="layer3" type="Sprite2D" parent="BG3"]
 texture = ExtResource("4_wa1ii")
@@ -48,7 +45,6 @@ centered = false
 
 [node name="BG4" type="Parallax2D" parent="."]
 repeat_size = Vector2(1152, 0)
-autoscroll = Vector2(1, 0)
 
 [node name="layer4" type="Sprite2D" parent="BG4"]
 texture = ExtResource("5_vwdqe")
@@ -56,7 +52,6 @@ centered = false
 
 [node name="BG5" type="Parallax2D" parent="."]
 repeat_size = Vector2(1152, 0)
-autoscroll = Vector2(1, 0)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="BG5"]
 
