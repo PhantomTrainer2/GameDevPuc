@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://l7nixtj3b4pa"]
+
+[node name="UI" type="CanvasLayer"]
+
+[node name="PointsUI" type="Label" parent="."]
+offset_left = 15.0
+offset_right = 76.0
+offset_bottom = 49.0
+size_flags_horizontal = 4
+text = "Score: 0"

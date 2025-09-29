@@ -1,0 +1,92 @@
+[gd_scene load_steps=9 format=3 uid="uid://buart71u11d45"]
+
+[ext_resource type="PackedScene" uid="uid://ctycupdfylg50" path="res://scenes/back_ground.tscn" id="1_bak1h"]
+[ext_resource type="Script" uid="uid://c24knwyn8rnb2" path="res://scripts/score.gd" id="1_plgac"]
+[ext_resource type="AudioStream" uid="uid://b7k1iq37sf3ed" path="res://assets/sound/MenuMusic.mp3" id="2_plgac"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bak1h"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_plgac"]
+bg_color = Color(0.273873, 0.273873, 0.273873, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lew60"]
+bg_color = Color(0.54099, 0.54099, 0.54099, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_68bkv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_plgac"]
+font_size = 48
+
+[node name="Score" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_plgac")
+
+[node name="background" parent="." instance=ExtResource("1_bak1h")]
+scale = Vector2(0.49945298, 0.9977194)
+
+[node name="MenuMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_plgac")
+autoplay = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -184.5
+offset_top = 40.0
+offset_right = 184.5
+offset_bottom = 134.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_bak1h")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_plgac")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lew60")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_68bkv")
+text = "Back to menu"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="FinalScore" type="Label" parent="CanvasLayer"]
+offset_left = 420.0
+offset_top = 279.0
+offset_right = 725.0
+offset_bottom = 346.0
+text = "Final Score: 0"
+label_settings = SubResource("LabelSettings_plgac")
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_menu_pressed"]
