@@ -3,13 +3,15 @@ extends CharacterBody2D
 
 @export var inventory: Array[InventorySlot]
 @export var inventoryTileMap: TileMapLayer
+@export var spritesheet: AnimatedSprite2D
 
 var bullet_scene = preload("res://scenes/bullet.tscn")
 
 var selected_item = null
 var direction_x = 0
 var direction_y = 0
-var cooldown_time = 0
+var cooldown_time = 1.5
+var cooldown_timeG = 0.5
 var last_direction: Vector2 = Vector2(1,0)
 const SPEED = 100.0
 
@@ -33,6 +35,8 @@ func _input(event):
 				selected_item = inventory[1].item
 			elif event.keycode == KEY_3:
 				selected_item = inventory[2].item
+			elif event.keycode == KEY_R:
+				get_tree().change_scene_to_file("res://scenes/node_2d.tscn")
 			elif event.keycode == KEY_SPACE and selected_item:
 				var bullet_obj = bullet_scene.instantiate()
 				var sprite = bullet_obj.get_node("Sprite2D")
@@ -42,24 +46,52 @@ func _input(event):
 					bullet_obj.direction = Vector2(direction_x, direction_y)
 				else:
 					bullet_obj.direction = Vector2(last_direction.x, last_direction.y)
-				if cooldown_time > 2:
-					get_parent().add_child(bullet_obj)
-					cooldown_time = 0 
+				if selected_item.item_name == "Egg":
+					bullet_obj.SPEED = 300
+					if cooldown_time > 1.5:
+						get_parent().add_child(bullet_obj)
+						cooldown_time = 0 
+				elif selected_item.item_name == "grape":
+					bullet_obj.SPEED = 100
+					if cooldown_timeG > 0.5:
+						get_parent().add_child(bullet_obj)
+						cooldown_timeG = 0 
+				
+				
 
 func _physics_process(delta: float) -> void:
 	cooldown_time += delta
-	
+	cooldown_timeG += delta
+	if self.position.x > 750:
+		self.position.x = 350
+	elif self.position.x < 350:
+		self.position.x = 750
+	elif self.position.y < 150:
+		self.position.y = 500
+	elif self.position.y > 500:
+		self.position.y = 150
 	direction_x = Input.get_axis("ui_left", "ui_right")
 	if direction_x:
 		velocity.x = direction_x * SPEED
+		if velocity.x > 0:
+			spritesheet.animation = "walking_right"
+		else:
+			spritesheet.animation = "walking_left"
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
 	direction_y = Input.get_axis("ui_up", "ui_down")
 	if direction_y:
 		velocity.y = direction_y * SPEED
+		if velocity.y > 0 and not direction_x:
+			spritesheet.animation = "walking_down"
+		elif velocity.y < 0 and not direction_x:
+			spritesheet.animation = "walking_up"
 	else:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
+	
+	if not direction_x and not direction_y:
+		spritesheet.animation = "idle"
 	
 	if direction_x != 0 or direction_y != 0:
 		last_direction = Vector2(direction_x, direction_y)
