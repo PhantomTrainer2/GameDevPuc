@@ -4,6 +4,8 @@ extends CharacterBody2D
 @export var inventory: Array[InventorySlot]
 @export var inventoryTileMap: TileMapLayer
 @export var spritesheet: AnimatedSprite2D
+@export var lifepoints = 3
+@export var score = 0
 
 var bullet_scene = preload("res://scenes/bullet.tscn")
 
@@ -14,9 +16,17 @@ var cooldown_time = 1.5
 var cooldown_timeG = 0.5
 var last_direction: Vector2 = Vector2(1,0)
 const SPEED = 100.0
+var life_label
+var score_label
 
 
 func _ready():
+	life_label = get_tree().get_root().get_node("Node2D/Life")
+	score_label = get_tree().get_root().get_node("Node2D/Score")
+
+	life_label.text = "Vidas: %d" % lifepoints
+	score_label.text = "Pontos: %d" % score
+	
 	for i in range(inventory.size()):
 		var slot = inventory[i]
 		var slot_sprite = Sprite2D.new()
@@ -58,18 +68,27 @@ func _input(event):
 						cooldown_timeG = 0 
 				
 				
+	# Adicione esta função em qualquer lugar dentro do script do player
+func take_damage(amount):
+	lifepoints -= amount
+	life_label.text = "Vidas: %d" % lifepoints
+	print("Player tomou dano! Vidas restantes: ", lifepoints) # Opcional: para debug
+
+	if lifepoints <= 0:
+		get_tree().change_scene_to_file("res://scenes/node_2d.tscn")
 
 func _physics_process(delta: float) -> void:
+	
 	cooldown_time += delta
 	cooldown_timeG += delta
 	if self.position.x > 750:
-		self.position.x = 350
-	elif self.position.x < 350:
 		self.position.x = 750
+	elif self.position.x < 350:
+		self.position.x = 350
 	elif self.position.y < 150:
-		self.position.y = 500
-	elif self.position.y > 500:
 		self.position.y = 150
+	elif self.position.y > 500:
+		self.position.y = 500
 	direction_x = Input.get_axis("ui_left", "ui_right")
 	if direction_x:
 		velocity.x = direction_x * SPEED
@@ -95,5 +114,8 @@ func _physics_process(delta: float) -> void:
 	
 	if direction_x != 0 or direction_y != 0:
 		last_direction = Vector2(direction_x, direction_y)
+		
+	if lifepoints <= 0:
+		get_tree().change_scene_to_file("res://scenes/node_2d.tscn")
 
 	move_and_slide()
