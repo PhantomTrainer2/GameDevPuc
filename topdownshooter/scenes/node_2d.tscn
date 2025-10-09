@@ -1,5 +1,6 @@
-[gd_scene load_steps=37 format=4 uid="uid://cfrpgyhjh6d3h"]
+[gd_scene load_steps=38 format=4 uid="uid://cfrpgyhjh6d3h"]
 
+[ext_resource type="Script" uid="uid://2ugkgkhiccfw" path="res://scripts/gameController.gd" id="1_3m5ht"]
 [ext_resource type="Texture2D" uid="uid://bkyjvgy7m6p1c" path="res://assets/Tilesets/Grass.png" id="1_4vge2"]
 [ext_resource type="Script" uid="uid://bg2lfcg8pppok" path="res://scripts/character_body_2d.gd" id="2_04qyp"]
 [ext_resource type="Script" uid="uid://1b43aqlx8a4o" path="res://scripts/inventory_slot.gd" id="3_04qyp"]
@@ -716,6 +717,7 @@ texture_region_size = Vector2i(22, 19)
 sources/0 = SubResource("TileSetAtlasSource_q6r6c")
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_3m5ht")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 texture_filter = 1
@@ -784,3 +786,5 @@ position = Vector2(799, 340)
 
 [node name="Marker2D4" type="Marker2D" parent="SpawnPoints"]
 position = Vector2(552, 525)
+
+[connection signal="timeout" from="enemyTimer" to="." method="_on_enemy_timer_timeout"]

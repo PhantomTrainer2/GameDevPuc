@@ -30,6 +30,8 @@ func _on_body_entered(body):
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("bullets"):
+		if player:
+			player.add_score(5)
+		
 		area.queue_free()
 		queue_free()
-		

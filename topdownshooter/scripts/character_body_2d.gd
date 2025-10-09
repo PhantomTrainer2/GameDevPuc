@@ -43,8 +43,6 @@ func _input(event):
 				selected_item = inventory[0].item
 			elif event.keycode == KEY_2:
 				selected_item = inventory[1].item
-			elif event.keycode == KEY_3:
-				selected_item = inventory[2].item
 			elif event.keycode == KEY_R:
 				get_tree().change_scene_to_file("res://scenes/node_2d.tscn")
 			elif event.keycode == KEY_SPACE and selected_item:
@@ -66,16 +64,17 @@ func _input(event):
 					if cooldown_timeG > 0.5:
 						get_parent().add_child(bullet_obj)
 						cooldown_timeG = 0 
-				
-				
-	# Adicione esta função em qualquer lugar dentro do script do player
+
 func take_damage(amount):
 	lifepoints -= amount
 	life_label.text = "Vidas: %d" % lifepoints
-	print("Player tomou dano! Vidas restantes: ", lifepoints) # Opcional: para debug
 
 	if lifepoints <= 0:
 		get_tree().change_scene_to_file("res://scenes/node_2d.tscn")
+
+func add_score(amount: int):
+	score += amount
+	score_label.text = "Pontos: %d" % score
 
 func _physics_process(delta: float) -> void:
 	
