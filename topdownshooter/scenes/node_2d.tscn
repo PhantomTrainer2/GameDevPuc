@@ -1,8 +1,8 @@
 [gd_scene load_steps=32 format=4 uid="uid://cfrpgyhjh6d3h"]
 
 [ext_resource type="Texture2D" uid="uid://bkyjvgy7m6p1c" path="res://assets/Tilesets/Grass.png" id="1_4vge2"]
-[ext_resource type="Script" uid="uid://bg2lfcg8pppok" path="res://character_body_2d.gd" id="2_04qyp"]
-[ext_resource type="Script" uid="uid://1b43aqlx8a4o" path="res://scripts/inventory_slot.gd" id="3_04qyp"]
+[ext_resource type="Script" uid="uid://bg2lfcg8pppok" path="res://assets/scripts/character_body_2d.gd" id="2_04qyp"]
+[ext_resource type="Script" uid="uid://1b43aqlx8a4o" path="res://assets/scripts/inventory_slot.gd" id="3_04qyp"]
 [ext_resource type="Texture2D" uid="uid://c587l417mkha8" path="res://assets/Characters/Basic Charakter Spritesheet.png" id="3_j7wrs"]
 [ext_resource type="Texture2D" uid="uid://rnry3fd0e2vu" path="res://assets/Sample-InventorySlotsSet.png" id="4_fws66"]
 [ext_resource type="Resource" uid="uid://cqg12hle1yqd8" path="res://resources/egg.tres" id="4_j7wrs"]
@@ -93,7 +93,6 @@ metadata/_custom_type_script = "uid://1b43aqlx8a4o"
 [sub_resource type="Resource" id="Resource_fws66"]
 script = ExtResource("3_04qyp")
 item = ExtResource("4_j7wrs")
-quantity = 0
 metadata/_custom_type_script = "uid://1b43aqlx8a4o"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0e48y"]
