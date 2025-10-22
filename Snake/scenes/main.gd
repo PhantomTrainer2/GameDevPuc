@@ -176,7 +176,7 @@ func _on_move_timer_timeout():
 	check_power_eaten() 
 	
 func check_out_of_bounds():
-	if snake_data[0].x < 0 or snake_data[0].x > cells - 1 or snake_data[0].y < 0 or snake_data[0].y > cells - 1:
+	if snake_data[0].x < 0 or snake_data[0].x > cells - 1 or snake_data[0].y < 0 or snake_data[0].y > cells - 3:
 		end_game()
 		
 func check_self_eaten():
@@ -210,7 +210,7 @@ func move_food():
 		else:
 			current_food_type = "grape"
 
-		food_pos = Vector2(randi_range(0, cells - 1), randi_range(0, cells - 1))
+		food_pos = Vector2(randi_range(0, cells - 1), randi_range(0, cells - 5))
 		for i in snake_data:
 			if food_pos == i:
 				regen_food = true
