@@ -50,7 +50,7 @@ animations = [{
 "speed": 14.0
 }]
 
-[node name="Coin" type="Area2D"]
+[node name="Coin" type="Area2D" groups=["coin"]]
 script = ExtResource("1_2qo34")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -64,4 +64,5 @@ sprite_frames = SubResource("SpriteFrames_81h6x")
 autoplay = "default"
 frame_progress = 0.4961493
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

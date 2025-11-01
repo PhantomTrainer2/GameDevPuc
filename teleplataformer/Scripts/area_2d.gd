@@ -17,3 +17,10 @@ func _on_body_entered(body: Node2D) -> void:
 	GameController.get_instance().points += 1
 	PointsUI.text = "Coins: " + str(GameController.get_instance().points)
 	queue_free()
+
+
+func _on_area_entered(area: Area2D) -> void:
+	if area.is_in_group("bullet"):
+		GameController.get_instance().points += 1
+		PointsUI.text = "Coins: " + str(GameController.get_instance().points)
+		queue_free()

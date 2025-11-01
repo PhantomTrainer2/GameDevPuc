@@ -90,7 +90,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ne65n"]
 size = Vector2(18.959328, 21.857365)
 
-[node name="enemy" type="Area2D"]
+[node name="enemy" type="Area2D" groups=["enemy"]]
 scale = Vector2(3.2131238, 2.8386652)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
