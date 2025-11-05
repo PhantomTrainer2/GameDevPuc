@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://co6s13m1l6sbs"]
 
 [ext_resource type="Script" uid="uid://7b8x8iovb4lf" path="res://Scripts/area_2d.gd" id="1_2qo34"]
-[ext_resource type="Texture2D" uid="uid://bod1dwv4bjw4w" path="res://Assets/Items/c7f297523ce57fc.png" id="2_jgi06"]
+[ext_resource type="Texture2D" uid="uid://bod1dwv4bjw4w" path="res://Assets/Items/coin.png" id="2_jgi06"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ig7tw"]
 radius = 65.0
