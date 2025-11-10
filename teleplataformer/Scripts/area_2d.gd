@@ -1,26 +1,30 @@
 extends Area2D
 
-@export var PointsUI: Label
+@export var bob_amplitude: float = 6.0   # quanto sobe/desce (pixels)
+@export var bob_speed: float = 2.0       # velocidade da oscilação
+@export var desync_phase: bool = true    # desincronizar quando houver várias chaves
 
-# Called when the node enters the scene tree for the first time.
+var _base_pos: Vector2
+var _t: float = 0.0
+var _phase: float = 0.0
+
 func _ready() -> void:
-	pass # Replace with function body.
+	_base_pos = position
+	if desync_phase:
+		var rng := RandomNumberGenerator.new()
+		rng.randomize()
+		_phase = rng.randf_range(0.0, TAU) # TAU = 2*PI
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
-
-
+	_t += delta
+	# mantém X, só oscila no Y
+	position.y = _base_pos.y + sin(_t * bob_speed + _phase) * bob_amplitude
 
 func _on_body_entered(body: Node2D) -> void:
 	GameController.get_instance().points += 1
-	PointsUI.text = "Coins: " + str(GameController.get_instance().points)
 	queue_free()
-
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("bullet"):
 		GameController.get_instance().points += 1
-		PointsUI.text = "Coins: " + str(GameController.get_instance().points)
 		queue_free()

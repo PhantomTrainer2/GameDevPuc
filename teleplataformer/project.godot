@@ -25,6 +25,7 @@ chao=""
 enemy=""
 coin=""
 bullet=""
+Key=""
 
 [input]
 
