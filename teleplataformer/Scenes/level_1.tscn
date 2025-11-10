@@ -241,7 +241,7 @@ position = Vector2(3806.0002, 465.99997)
 scale = Vector2(1.7733951, 1.5647873)
 
 [node name="Key" parent="." groups=["Key"] instance=ExtResource("6_lsmp6")]
-position = Vector2(683, 401)
+position = Vector2(665, 490)
 
 [connection signal="area_entered" from="Key" to="Key" method="_on_area_entered"]
 [connection signal="body_entered" from="Key" to="Key" method="_on_body_entered"]
