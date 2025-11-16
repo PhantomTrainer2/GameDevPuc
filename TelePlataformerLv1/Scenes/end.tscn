@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://dj1n2c5g1bs7q"]
+
+[ext_resource type="Texture2D" uid="uid://7ledgt0jbngo" path="res://Assets/Background/Pink.png" id="1_5j2cu"]
+[ext_resource type="AudioStream" uid="uid://b7k1iq37sf3ed" path="res://Assets/Credits.mp3" id="2_xmt8n"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5j2cu"]
+font_size = 64
+font_color = Color(0, 0, 0, 1)
+
+[node name="End" type="Node2D"]
+
+[node name="BackGround" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = -1309.0
+offset_top = -2132.0
+offset_right = 7388.0
+offset_bottom = 1302.0
+texture = ExtResource("1_5j2cu")
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="."]
+offset_left = 3.0
+offset_top = -1.0
+offset_right = 1152.0
+offset_bottom = 647.0
+size_flags_horizontal = 4
+text = "CONGRATULATIONS !!!"
+label_settings = SubResource("LabelSettings_5j2cu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_xmt8n")
+autoplay = true
