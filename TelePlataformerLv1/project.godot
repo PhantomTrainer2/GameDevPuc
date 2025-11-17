@@ -26,6 +26,7 @@ enemy=""
 coin=""
 bullet=""
 Key=""
+player=""
 
 [input]
 

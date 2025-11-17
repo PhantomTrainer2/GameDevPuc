@@ -98,7 +98,7 @@ func _physics_process(delta: float) -> void:
 
 # --- Colisão com inimigos ---
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	if area.name.contains("enemy"):
+	if area.is_in_group("enemy"):
 		restart_level()
 
 

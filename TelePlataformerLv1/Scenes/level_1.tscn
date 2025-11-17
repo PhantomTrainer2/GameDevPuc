@@ -1,13 +1,14 @@
-[gd_scene load_steps=13 format=4 uid="uid://dej8g6m3ghx1x"]
+[gd_scene load_steps=14 format=4 uid="uid://dej8g6m3ghx1x"]
 
 [ext_resource type="Texture2D" uid="uid://cm05lnpqit5qe" path="res://Assets/Background/Screenshot 2025-11-14 at 18-10-08 Free Nature Backgrounds Pixel Art Download - CraftPix.net.png" id="1_xrdnt"]
 [ext_resource type="PackedScene" uid="uid://c0wsr8wvwan15" path="res://Scenes/player.tscn" id="3_xrdnt"]
 [ext_resource type="Texture2D" uid="uid://c4mq60ck0mxre" path="res://Assets/Terrain/Terrain (16x16).png" id="4_wrinw"]
 [ext_resource type="Texture2D" uid="uid://dl8onaobsovdq" path="res://Assets/Terrain/Medieval_tiles_free_2.0.png" id="5_xrdnt"]
-[ext_resource type="PackedScene" uid="uid://cy52qohalkvdj" path="res://Scenes/enemy.tscn" id="6_af3po"]
 [ext_resource type="AudioStream" uid="uid://bmn5dyy35c1mk" path="res://Assets/03. Level 1 & 4 - Miner Ultra Adventures.mp3" id="6_evi0p"]
 [ext_resource type="PackedScene" uid="uid://bs2k2gwx4rt2q" path="res://Scenes/key.tscn" id="6_lsmp6"]
 [ext_resource type="PackedScene" uid="uid://bbw7g8mfdwhes" path="res://Scenes/door.tscn" id="7_lsmp6"]
+[ext_resource type="PackedScene" uid="uid://mx8kgc2koq0d" path="res://Scenes/base_enemy.tscn" id="8_xrdnt"]
+[ext_resource type="PackedScene" uid="uid://b34b6xri2l6oe" path="res://Scenes/mid_enemy.tscn" id="9_wrinw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wrinw"]
 texture = ExtResource("5_xrdnt")
@@ -2689,7 +2690,7 @@ stretch_mode = 1
 [node name="Door" parent="." instance=ExtResource("7_lsmp6")]
 position = Vector2(4070, 438)
 
-[node name="Player" parent="." instance=ExtResource("3_xrdnt")]
+[node name="Player" parent="." groups=["player"] instance=ExtResource("3_xrdnt")]
 position = Vector2(49, 525)
 
 [node name="level1Music" type="AudioStreamPlayer2D" parent="Player"]
@@ -2713,40 +2714,26 @@ tile_set = SubResource("TileSet_6bp64")
 position = Vector2(1705, -58)
 tile_set = SubResource("TileSet_6bp64")
 
-[node name="enemy" parent="." instance=ExtResource("6_af3po")]
-position = Vector2(310, 471)
-scale = Vector2(1.7733951, 1.5647873)
-
-[node name="enemy2" parent="." instance=ExtResource("6_af3po")]
-position = Vector2(637, 377)
-scale = Vector2(1.7733951, 1.5647873)
-
-[node name="enemy3" parent="." instance=ExtResource("6_af3po")]
-position = Vector2(3157, 467.99997)
-scale = Vector2(1.7733951, 1.5647873)
-
-[node name="enemy4" parent="." instance=ExtResource("6_af3po")]
-position = Vector2(1191.0001, 454)
-scale = Vector2(1.7733951, 1.5647873)
-
-[node name="enemy6" parent="." instance=ExtResource("6_af3po")]
-position = Vector2(1752, 454)
-scale = Vector2(1.7733951, 1.5647873)
-
-[node name="enemy7" parent="." instance=ExtResource("6_af3po")]
-position = Vector2(2091, 450)
-scale = Vector2(1.7733951, 1.5647873)
-
-[node name="enemy8" parent="." instance=ExtResource("6_af3po")]
-position = Vector2(2501, 439)
-scale = Vector2(1.7733951, 1.5647873)
-
-[node name="enemy9" parent="." instance=ExtResource("6_af3po")]
-position = Vector2(3781, 344)
-scale = Vector2(1.7733951, 1.5647873)
-
 [node name="Key" parent="." groups=["Key"] instance=ExtResource("6_lsmp6")]
 position = Vector2(562, 300)
+
+[node name="BaseEnemy" parent="." instance=ExtResource("8_xrdnt")]
+position = Vector2(908, 475)
+
+[node name="BaseEnemy2" parent="." instance=ExtResource("8_xrdnt")]
+position = Vector2(2722, 395)
+
+[node name="BaseEnemy3" parent="." instance=ExtResource("8_xrdnt")]
+position = Vector2(1346, 426)
+
+[node name="BaseEnemy4" parent="." instance=ExtResource("8_xrdnt")]
+position = Vector2(1190, 459)
+
+[node name="BaseEnemy5" parent="." instance=ExtResource("8_xrdnt")]
+position = Vector2(964, 475)
+
+[node name="MidEnemy" parent="." instance=ExtResource("9_wrinw")]
+position = Vector2(663, 379)
 
 [connection signal="area_entered" from="Key" to="Key" method="_on_area_entered"]
 [connection signal="body_entered" from="Key" to="Key" method="_on_body_entered"]
