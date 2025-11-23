@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bb73p66i0krln"
-path="res://.godot/imported/heaven_tile_set.png-75d10d96f6855dce8344f570969388ed.ctex"
+uid="uid://bkfyg50c02ac0"
+path="res://.godot/imported/Boss.png-11d7632fa9f1e0b4d02141b14b7ac6a7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Terrain/heaven_tile_set.png"
-dest_files=["res://.godot/imported/heaven_tile_set.png-75d10d96f6855dce8344f570969388ed.ctex"]
+source_file="res://Assets/Enemys/Boss.png"
+dest_files=["res://.godot/imported/Boss.png-11d7632fa9f1e0b4d02141b14b7ac6a7.ctex"]
 
 [params]
 
