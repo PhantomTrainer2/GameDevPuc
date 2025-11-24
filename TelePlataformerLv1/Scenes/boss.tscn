@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsmegm56oqu86"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ahpb"]
+size = Vector2(49, 66)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4ahpb"]
+
+[node name="Boss" type="Area2D" groups=["Boss"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(14.5, 23)
+shape = SubResource("RectangleShape2D_4ahpb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4ahpb")

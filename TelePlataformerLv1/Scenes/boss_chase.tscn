@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://dd1653nd1mib5"]
+
+[ext_resource type="Script" uid="uid://bnbw35xxmto1f" path="res://Scripts/boss_chase.gd" id="1_nqr3l"]
+[ext_resource type="Texture2D" uid="uid://7txq4ctrx7rx" path="res://Assets/Enemys/BossChase.png" id="1_wwsek"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqr3l"]
+atlas = ExtResource("1_wwsek")
+region = Rect2(0, 0, 27, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8d8ev"]
+atlas = ExtResource("1_wwsek")
+region = Rect2(54, 0, 27, 28)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wsa1u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nqr3l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8d8ev")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s8nj6"]
+size = Vector2(933, 392)
+
+[node name="BossChase" type="Area2D" groups=["BossChase"]]
+script = ExtResource("1_nqr3l")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(15, 15)
+sprite_frames = SubResource("SpriteFrames_wsa1u")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.2382713
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-357.5, 2)
+shape = SubResource("RectangleShape2D_s8nj6")

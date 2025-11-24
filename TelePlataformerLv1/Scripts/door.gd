@@ -18,5 +18,9 @@ func _on_body_entered(body: Node2D) -> void:
 		if GameController.get_instance().current_level  == 2:
 			get_tree().change_scene_to_file("res://Scenes/level_2.tscn")
 		if GameController.get_instance().current_level  == 3:
-			get_tree().change_scene_to_file("res://Scenes/level_1.tscn")
+			get_tree().change_scene_to_file("res://Scenes/level_3.tscn")
+		if GameController.get_instance().current_level  == 4:
+			get_tree().change_scene_to_file("res://Scenes/level_4.tscn")
+		if GameController.get_instance().current_level  == 5:
+			get_tree().change_scene_to_file("res://Scenes/end.tscn")
 		queue_free()

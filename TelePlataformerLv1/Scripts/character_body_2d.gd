@@ -22,13 +22,13 @@ func _physics_process(delta: float) -> void:
 
 	# --- Troca de nível ---
 	if GameController.get_instance().points >= 10:
-		if GameController.get_instance().current_level == 2:
+		if GameController.get_instance().current_level == 4:
 			GameController.get_instance().points = 0
 			get_tree().change_scene_to_file("res://Scenes/end.tscn")
 		else:
 			GameController.get_instance().current_level += 1
 			GameController.get_instance().points = 0
-			get_tree().change_scene_to_file("res://Scenes/level_2.tscn")
+			get_tree().change_scene_to_file("res://Scenes/level_%d.tscn" % GameController.get_instance().current_level)
 
 	# --- Controle de pulo e gravidade ---
 	if is_on_floor():
@@ -99,6 +99,8 @@ func _physics_process(delta: float) -> void:
 # --- Colisão com inimigos ---
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("enemy"):
+		restart_level()
+	if area.is_in_group("BossChase"):
 		restart_level()
 
 

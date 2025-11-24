@@ -27,6 +27,7 @@ coin=""
 bullet=""
 Key=""
 player=""
+Boss=""
 
 [input]
 
