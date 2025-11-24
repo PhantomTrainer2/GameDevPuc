@@ -1,13 +1,10 @@
-[gd_scene load_steps=11 format=4 uid="uid://cgq1v5yknyglu"]
+[gd_scene load_steps=8 format=4 uid="uid://cgq1v5yknyglu"]
 
 [ext_resource type="Texture2D" uid="uid://dgsv470amsnx8" path="res://Assets/Background/sky.jpg" id="1_f6i20"]
 [ext_resource type="Texture2D" uid="uid://dq6ep7mflrkpe" path="res://Assets/Terrain/Cloud Tileset.png" id="2_dvrgg"]
 [ext_resource type="PackedScene" uid="uid://c0wsr8wvwan15" path="res://Scenes/player.tscn" id="3_wk15n"]
 [ext_resource type="AudioStream" uid="uid://bmn5dyy35c1mk" path="res://Assets/03. Level 1 & 4 - Miner Ultra Adventures.mp3" id="4_5a8oa"]
 [ext_resource type="PackedScene" uid="uid://bsmegm56oqu86" path="res://Scenes/boss.tscn" id="5_3ntyy"]
-[ext_resource type="PackedScene" uid="uid://b70x478mdywho" path="res://Scenes/heaven_door.tscn" id="6_5a8oa"]
-[ext_resource type="PackedScene" uid="uid://ma7nw37o8hy2" path="res://Scenes/heaven_key.tscn" id="7_3ntyy"]
-[ext_resource type="Script" uid="uid://7b8x8iovb4lf" path="res://Scripts/area_2d.gd" id="8_7huqf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mtq7f"]
 texture = ExtResource("2_dvrgg")
@@ -91,13 +88,3 @@ autoplay = true
 
 [node name="Boss" parent="." instance=ExtResource("5_3ntyy")]
 position = Vector2(1024, 467)
-
-[node name="HeavenDoor" parent="." instance=ExtResource("6_5a8oa")]
-position = Vector2(809, 474)
-
-[node name="HeavenKey" parent="." groups=["Key"] instance=ExtResource("7_3ntyy")]
-position = Vector2(324, 500)
-script = ExtResource("8_7huqf")
-
-[connection signal="area_entered" from="HeavenKey" to="HeavenKey" method="_on_area_entered"]
-[connection signal="body_entered" from="HeavenKey" to="HeavenKey" method="_on_body_entered"]

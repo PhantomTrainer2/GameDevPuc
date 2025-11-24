@@ -100,6 +100,8 @@ func _physics_process(delta: float) -> void:
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("enemy"):
 		restart_level()
+	if area.is_in_group("Boss"):
+		restart_level()
 	if area.is_in_group("BossChase"):
 		restart_level()
 
