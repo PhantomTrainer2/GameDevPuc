@@ -5,11 +5,20 @@ var direction_x = 0
 var last_direction: Vector2 = Vector2(1, 0)
 var current_bullet: Area2D = null  # 🔹 guarda o projétil atual
 
+var has_hat: bool = true  # 🔹 controla se o player está com chapéu ou não
+
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
 @export var spritesheet: AnimatedSprite2D
 var bullet_scene = preload("res://Scenes/bullet.tscn")
+
+# 🔹 Helper para tocar animação com/sem chapéu
+func play_anim(base_name: String) -> void:
+	if has_hat:
+		spritesheet.animation = base_name
+	else:
+		spritesheet.animation = base_name + "-nohat"
 
 func restart_level() -> void:
 	var gc = GameController.get_instance()
@@ -41,11 +50,11 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 		if velocity.y < 0:
 			if !usedDJ:
-				spritesheet.animation = "jump"
+				play_anim("jump")
 			else:
-				spritesheet.animation = "dj"
+				play_anim("dj")
 		else:
-			spritesheet.animation = "fall"
+			play_anim("fall")
 
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
@@ -69,6 +78,9 @@ func _physics_process(delta: float) -> void:
 		current_bullet = bullet_obj  # salva referência
 		get_parent().add_child(bullet_obj)
 
+		# 🔹 assim que atira, some o chapéu do jogador
+		has_hat = false
+
 	# --- Reiniciar fase ---
 	if Input.is_action_just_pressed("restart"):
 		restart_level()
@@ -77,17 +89,17 @@ func _physics_process(delta: float) -> void:
 	if self.position.y >= 1000:
 		restart_level()
 
-	# --- Movimento horizontal e animações ---
+	# --- Movimento horizontal e animações no chão ---
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
 		spritesheet.flip_h = direction < 0
 		velocity.x = direction * SPEED
 		if is_on_floor():
-			spritesheet.animation = "walking"
+			play_anim("walking")
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		if is_on_floor():
-			spritesheet.animation = "idle"
+			play_anim("idle")
 
 	# guarda a última direção
 	if direction_x != 0:
@@ -109,3 +121,4 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 # --- 🔹 Chamado quando o projétil é destruído ---
 func _on_bullet_freed() -> void:
 	current_bullet = null
+	has_hat = true  # 🔹 chapéu volta pra cabeça
