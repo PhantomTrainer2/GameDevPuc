@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bmn5dyy35c1mk"
+path="res://.godot/imported/03. Level 1 & 4 - Miner Ultra Adventures.mp3-9d8c4751d6d5a456ffa8e61ee9057d5a.mp3str"
+
+[deps]
+
+source_file="res://Assets/03. Level 1 & 4 - Miner Ultra Adventures.mp3"
+dest_files=["res://.godot/imported/03. Level 1 & 4 - Miner Ultra Adventures.mp3-9d8c4751d6d5a456ffa8e61ee9057d5a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
