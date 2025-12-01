@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dqn535vsiwduy"]
+[gd_scene load_steps=10 format=3 uid="uid://dqn535vsiwduy"]
 
 [ext_resource type="Script" uid="uid://dodgyffkdfcew" path="res://Scripts/menu.gd" id="1_mae5d"]
 [ext_resource type="Texture2D" uid="uid://cevj26gi7lc8l" path="res://Assets/Background/Green.png" id="2_158mb"]
+[ext_resource type="Texture2D" uid="uid://bmdkr53d180p" path="res://Assets/Menu/FreeHorrorUi.png" id="2_wwsa2"]
 [ext_resource type="AudioStream" uid="uid://b7k1iq37sf3ed" path="res://Assets/Credits.mp3" id="2_xhh6f"]
 [ext_resource type="Texture2D" uid="uid://7ledgt0jbngo" path="res://Assets/Background/Pink.png" id="3_cayip"]
 
@@ -40,7 +41,15 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_mae5d")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(549, 319)
+scale = Vector2(8.104206, 8.409638)
+texture = ExtResource("2_wwsa2")
+region_enabled = true
+region_rect = Rect2(125.062485, 127.35425, 69.04317, 83.03839)
+
 [node name="BackGround2" type="TextureRect" parent="."]
+visible = false
 texture_filter = 1
 layout_mode = 0
 offset_left = -2.0
@@ -51,6 +60,7 @@ texture = ExtResource("2_158mb")
 stretch_mode = 1
 
 [node name="BackGround" type="TextureRect" parent="."]
+visible = false
 texture_filter = 1
 layout_mode = 0
 offset_left = 572.0
@@ -61,40 +71,53 @@ stretch_mode = 1
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -268.5
-offset_top = 219.0
-offset_right = 268.5
-offset_bottom = 327.0
+anchors_preset = -1
+anchor_left = 0.48600003
+anchor_top = 0.44500002
+anchor_right = 0.48600003
+anchor_bottom = 0.44500002
+offset_left = -200.87201
+offset_top = -166.36002
+offset_right = 201.12799
+offset_bottom = -71.360016
 grow_horizontal = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 10
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 50
 text = "Teleplataformer"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+texture_filter = 1
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = -1
+anchor_left = 0.467
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -184.5
-offset_top = 40.0
-offset_right = 184.5
-offset_bottom = 134.0
+offset_left = -130.98401
+offset_top = -50.0
+offset_right = 131.0
+offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
+[node name="Sprite2D2" type="Sprite2D" parent="VBoxContainer"]
+position = Vector2(138, 28)
+scale = Vector2(5.5849047, 4.3166666)
+texture = ExtResource("2_wwsa2")
+region_enabled = true
+region_rect = Rect2(5.1044407, 136.79416, 53.957672, 15.98996)
+
 [node name="Button" type="Button" parent="VBoxContainer"]
+modulate = Color(1, 1, 1, 0.003921569)
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(300, 60)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
@@ -106,10 +129,50 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_vsb4k")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_mae5d")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ouk20")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ouk20")
-text = "Start"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.467
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -134.98401
+offset_top = 32.0
+offset_right = 127.0
+offset_bottom = 92.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Sprite2D2" type="Sprite2D" parent="VBoxContainer2"]
+position = Vector2(138, 28)
+scale = Vector2(5.5849047, 4.3166666)
+texture = ExtResource("2_wwsa2")
+region_enabled = true
+region_rect = Rect2(5.7163353, 201.52162, 52.574127, 14.657028)
+
+[node name="Button" type="Button" parent="VBoxContainer2"]
+modulate = Color(1, 1, 1, 0.003921569)
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_vsb4k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mae5d")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ouk20")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ouk20")
 
 [node name="MenuMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_xhh6f")
 autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer2/Button" to="." method="_on_exit_pressed"]
