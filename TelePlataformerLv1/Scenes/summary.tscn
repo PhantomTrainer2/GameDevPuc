@@ -1,0 +1,91 @@
+[gd_scene load_steps=8 format=3 uid="uid://b44vono33rg2m"]
+
+[ext_resource type="Script" uid="uid://cnphjdholjywr" path="res://Scripts/summary.gd" id="1_wpx3f"]
+[ext_resource type="Texture2D" uid="uid://bmdkr53d180p" path="res://Assets/Menu/FreeHorrorUi.png" id="2_6u2vo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6u2vo"]
+font_size = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gpevd"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_20ugo"]
+bg_color = Color(0.273873, 0.273873, 0.273873, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_abdlg"]
+bg_color = Color(0.54099, 0.54099, 0.54099, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_elbsk"]
+
+[node name="summary" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_wpx3f")
+
+[node name="Summary" type="CanvasLayer" parent="."]
+process_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Summary"]
+texture_filter = 1
+position = Vector2(549, 319)
+scale = Vector2(8.104206, 8.409638)
+texture = ExtResource("2_6u2vo")
+region_enabled = true
+region_rect = Rect2(125.062485, 127.35425, 69.04317, 83.03839)
+
+[node name="Label" type="Label" parent="Summary"]
+offset_left = 337.0
+offset_top = 178.0
+offset_right = 637.0
+offset_bottom = 228.0
+text = "TESTE"
+label_settings = SubResource("LabelSettings_6u2vo")
+
+[node name="Control" type="MarginContainer" parent="Summary"]
+offset_left = 416.0
+offset_top = 247.0
+offset_right = 716.0
+offset_bottom = 334.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Summary/Control"]
+layout_mode = 2
+
+[node name="Sprite2D2" type="Sprite2D" parent="Summary/Control/VBoxContainer"]
+texture_filter = 1
+position = Vector2(147, 32.999985)
+scale = Vector2(5.5849047, 4.3166666)
+texture = ExtResource("2_6u2vo")
+region_enabled = true
+region_rect = Rect2(5.1044407, 136.79416, 53.957672, 15.98996)
+
+[node name="Button" type="Button" parent="Summary/Control/VBoxContainer"]
+modulate = Color(1, 1, 1, 0.003921569)
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_gpevd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_20ugo")
+theme_override_styles/hover = SubResource("StyleBoxFlat_abdlg")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_elbsk")
+
+[connection signal="pressed" from="Summary/Control/VBoxContainer/Button" to="." method="_on_button_pressed"]

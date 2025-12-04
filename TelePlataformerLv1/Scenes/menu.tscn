@@ -1,10 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dqn535vsiwduy"]
+[gd_scene load_steps=8 format=3 uid="uid://dqn535vsiwduy"]
 
 [ext_resource type="Script" uid="uid://dodgyffkdfcew" path="res://Scripts/menu.gd" id="1_mae5d"]
-[ext_resource type="Texture2D" uid="uid://cevj26gi7lc8l" path="res://Assets/Background/Green.png" id="2_158mb"]
 [ext_resource type="Texture2D" uid="uid://bmdkr53d180p" path="res://Assets/Menu/FreeHorrorUi.png" id="2_wwsa2"]
 [ext_resource type="AudioStream" uid="uid://b7k1iq37sf3ed" path="res://Assets/Credits.mp3" id="2_xhh6f"]
-[ext_resource type="Texture2D" uid="uid://7ledgt0jbngo" path="res://Assets/Background/Pink.png" id="3_cayip"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vsb4k"]
 bg_color = Color(1, 1, 1, 1)
@@ -42,32 +40,12 @@ grow_vertical = 2
 script = ExtResource("1_mae5d")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(549, 319)
 scale = Vector2(8.104206, 8.409638)
 texture = ExtResource("2_wwsa2")
 region_enabled = true
 region_rect = Rect2(125.062485, 127.35425, 69.04317, 83.03839)
-
-[node name="BackGround2" type="TextureRect" parent="."]
-visible = false
-texture_filter = 1
-layout_mode = 0
-offset_left = -2.0
-offset_top = 2.0
-offset_right = 580.0
-offset_bottom = 654.0
-texture = ExtResource("2_158mb")
-stretch_mode = 1
-
-[node name="BackGround" type="TextureRect" parent="."]
-visible = false
-texture_filter = 1
-layout_mode = 0
-offset_left = 572.0
-offset_right = 1157.0
-offset_bottom = 648.0
-texture = ExtResource("3_cayip")
-stretch_mode = 1
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -108,6 +86,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="Sprite2D2" type="Sprite2D" parent="VBoxContainer"]
+texture_filter = 1
 position = Vector2(138, 28)
 scale = Vector2(5.5849047, 4.3166666)
 texture = ExtResource("2_wwsa2")
@@ -148,6 +127,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="Sprite2D2" type="Sprite2D" parent="VBoxContainer2"]
+texture_filter = 1
 position = Vector2(138, 28)
 scale = Vector2(5.5849047, 4.3166666)
 texture = ExtResource("2_wwsa2")
