@@ -136,7 +136,7 @@ tile_map_data = PackedByteArray("AAAJACEAAAAxABEAAAAJACIAAAAxABIAAAAJACMAAAAxABE
 tile_set = SubResource("TileSet_t7v2y")
 
 [node name="HeavenKey" parent="." groups=["Key"] instance=ExtResource("6_055b2")]
-position = Vector2(1823, 251)
+position = Vector2(1828, 204)
 script = ExtResource("7_055b2")
 
 [node name="BaseEnemy" parent="." instance=ExtResource("8_uhnj4")]
@@ -146,7 +146,7 @@ position = Vector2(409, 381)
 position = Vector2(3234, 62)
 
 [node name="BaseEnemy2" parent="." instance=ExtResource("8_uhnj4")]
-position = Vector2(1853, 253)
+position = Vector2(1100, 335)
 
 [node name="MidEnemy2" parent="." instance=ExtResource("9_42uki")]
 position = Vector2(2101, 413)

@@ -23,6 +23,7 @@ func play_anim(base_name: String) -> void:
 func restart_level() -> void:
 	var gc = GameController.get_instance()
 	gc.points = 0
+	gc.coinsCollected = 0
 	get_tree().change_scene_to_file("res://Scenes/level_%d.tscn" % gc.current_level)
 
 
